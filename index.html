@@ -13,51 +13,69 @@
 
             let x = Math.floor(Math.random() * 3);
             if (x === 0) { 
-                return "Rock" ;
+                return "ROCK";
             } else if ( x === 1) {
-                return "Paper";
+                return "PAPER";
             } else {
-                return "Scissors";
+                return "SCISSORS";
             }
         }    
 
         function playRound(playerSelection, computerSelection) {
     
-            if (playerSelection == "Rock") {
+            if (playerSelection == "ROCK") {
 
-                if (computerSelection =="Rock") {
+                if (computerSelection =="ROCK") {
                     console.log("Its a tie! Rock and Rock")
-                } else if (computerSelection =="Scissors") {
-                    console.log("You win! Rock beats SCissors!")
-                } else {
+                } else if (computerSelection =="SCISSORS") {
+                    console.log("You win! Rock beats Scissors!")
+                } else if (computerSelection =="PAPER") {
                     console.log("you lose! Paper covers rock!")
-                }
+                } else {
+                    console.log("Something went wrong?")
+                } 
             
-            } else if (playerSelection == "Paper") {
+            } else if (playerSelection == "PAPER") {
 
-                if (computerSelection == "Paper") {
+                if (computerSelection == "PAPER") {
                     console.log("Its a tie! Paper and Paper")
-                } else if (computerSelection == "Rock") {
+                } else if (computerSelection == "ROCK") {
                     console.log("You win! Paper covers Rock!")
-                }else {
+                } else if (computerSelection == "SCISSORS") {
                     console.log("You lose! Scissors cuts paper!")
+                } else {
+                    console.log("Something went wrong?")
+                }
+
+            } else if (playerSelection =="SCISSORS") {
+
+                if (computerSelection == "SCISSORS") {
+                    console.log("Its a tie! Scissors and Scissors") 
+                } else if (computerSelection == "PAPER") {
+                    console.log("You win! Scissors cuts paper!")
+                } else if (computerSelection == "ROCK") {
+                    console.log("you lose! Rock smashes scissors!")
+                } else {
+                    console.log("Something went wrong?")
                 }
             } else {
-
-                if (computerSelection == "Scissors") {
-                    console.log("Its a tie! Scissors and Scissors") 
-                } else if (computerSelection == "Paper") {
-                    console.log("You win! Scissors cuts paper!")
-                } else {
-                    console.log("you lose! Rock smashes scissors!")
-                }
-                }
+                console.log("Something went wrong?")
             }
-        const computerSelection = getComputerChoice();    
-        console.log(computerSelection);
-        playRound("Scissors", computerSelection);
-        // console.log(playRound("Paper", getComputerChoice()));
+            }
+            
+        // console.log(computerSelection);
+        // playRound("Scissors", computerSelection);
         
+
+        function game() {
+            for (let i=0; i<5; i++) {
+                let computerSelection = getComputerChoice();
+                let playerSelection = prompt("Rock, Paper, Scissors?").toUpperCase()
+                playRound(playerSelection, computerSelection);
+                console.log(playerSelection, computerSelection);
+            }
+        }
+        game();
         </script> 
         <script src="script.js"></script>
     </body>
