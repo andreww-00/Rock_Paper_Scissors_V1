@@ -7,7 +7,58 @@
         <title> Rock Paper Scissors</title>
     </head>
     <body> 
+        <script> 
 
+        function getComputerChoice() {
+
+            let x = Math.floor(Math.random() * 3);
+            if (x === 0) { 
+                return "Rock" ;
+            } else if ( x === 1) {
+                return "Paper";
+            } else {
+                return "Scissors";
+            }
+        }    
+
+        function playRound(playerSelection, computerSelection) {
+    
+            if (playerSelection == "Rock") {
+
+                if (computerSelection =="Rock") {
+                    console.log("Its a tie! Rock and Rock")
+                } else if (computerSelection =="Scissors") {
+                    console.log("You win! Rock beats SCissors!")
+                } else {
+                    console.log("you lose! Paper covers rock!")
+                }
+            
+            } else if (playerSelection == "Paper") {
+
+                if (computerSelection == "Paper") {
+                    console.log("Its a tie! Paper and Paper")
+                } else if (computerSelection == "Rock") {
+                    console.log("You win! Paper covers Rock!")
+                }else {
+                    console.log("You lose! Scissors cuts paper!")
+                }
+            } else {
+
+                if (computerSelection == "Scissors") {
+                    console.log("Its a tie! Scissors and Scissors") 
+                } else if (computerSelection == "Paper") {
+                    console.log("You win! Scissors cuts paper!")
+                } else {
+                    console.log("you lose! Rock smashes scissors!")
+                }
+                }
+            }
+        const computerSelection = getComputerChoice();    
+        console.log(computerSelection);
+        playRound("Scissors", computerSelection);
+        // console.log(playRound("Paper", getComputerChoice()));
+        
+        </script> 
         <script src="script.js"></script>
     </body>
 
