@@ -18,6 +18,7 @@
         const Paper = document.querySelector(".Paper");
         const Scissors = document.querySelector(".Scissors")
         const roundResult = document.createElement('div');
+        roundResult.setAttribute('style', 'white-space:pre;');
 
         Rock.addEventListener("click", e => {
             playRound("ROCK", getComputerChoice());
@@ -41,17 +42,19 @@
         function playRound(playerSelection, computerSelection) {
 
             roundsPlayed = roundsPlayed + 1;
-            console.log(roundsPlayed);
             if (playerSelection == "ROCK") {
 
                 if (computerSelection == "ROCK") {
                     roundResult.textContent = "Tie rock and rock!";
                     document.body.appendChild(roundResult);
                 } else if (computerSelection == "SCISSORS") {
-                    roundResult.textContent = "You win! Rock beats Scissors!";
+                    playerScore += 1;
+                    roundResult.textContent = "You win! Rock beats Scissors!\r\n" + "Player Score: " + playerScore + "\r\nComputer Score:" + computerScore;
                     document.body.appendChild(roundResult);
+                    
                 } else if (computerSelection == "PAPER") {
-                    roundResult.textContent = "you lose! Paper covers rock!";
+                    computerScore += 1;
+                    roundResult.textContent = "you lose! Paper covers rock!\r\n" + "Player Score: " + playerScore + "\r\nComputer Score:" + computerScore;
                     document.body.appendChild(roundResult);
                 } else {
                     console.log("Something went wrong?")
@@ -63,11 +66,14 @@
                     roundResult.textContent = "Its a tie! Paper and Paper";
                     document.body.appendChild(roundResult);
                 } else if (computerSelection == "ROCK") {
-                    roundResult.textContent = "You win! Paper covers Rock!";
+                    playerScore += 1;
+                    roundResult.textContent = "You win! Paper covers Rock!\r\n" + "Player Score: " + playerScore + "\r\nComputer Score:" + computerScore;
                     document.body.appendChild(roundResult);
+                    
                 } else if (computerSelection == "SCISSORS") {
-                    roundResult.textContent = "You lose! Scissors cuts paper!";
-                    document.body.appendChild(roundResult);
+                    computerScore += 1;
+                    roundResult.textContent = "You lose! Scissors cuts paper!\r\n" + "Player Score: " + playerScore + "\r\nComputer Score:" + computerScore;
+                    document.body.appendChild(roundResult); 
                 } else {
                     console.log("Something went wrong?")
                 }
@@ -78,21 +84,25 @@
                     roundResult.textContent = "Its a tie! Scissors and Scissors";
                     document.body.appendChild(roundResult);
                 } else if (computerSelection == "PAPER") {
-                    roundResult.textContent = "You win! Scissors cuts paper!";
+                    playerScore += 1;
+                    roundResult.textContent = "You win! Scissors cuts paper!\r\n" + "Player Score: " + playerScore + "\r\nComputer Score:" + computerScore;
                     document.body.appendChild(roundResult);
                 } else if (computerSelection == "ROCK") {
-                    roundResult.textContent = "you lose! Rock smashes scissors!";
+                    computerScore += 1;
+                    roundResult.textContent = "you lose! Rock smashes scissors!\r\n" + "Player Score: " + playerScore + "\r\nComputer Score:" + computerScore;
                     document.body.appendChild(roundResult);
+                   
                 } else {
                     console.log("Something went wrong?")
                 }
             } else {
                 console.log("Something went wrong?")
             }
-            
+
+            console.log(playerScore, computerScore)
 
             if (roundsPlayed == 5) {
-
+                ;
                document.querySelector('.Rock').disabled = true;
                document.querySelector('.Paper').disabled = true;
                document.querySelector('.Scissors').disabled = true;
