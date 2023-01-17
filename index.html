@@ -14,6 +14,21 @@
     <button class = "Scissors"> Scissors </button>
     <script>
 
+        const Rock = document.querySelector(".Rock");
+        const Paper = document.querySelector(".Paper");
+        const Scissors = document.querySelector(".Scissors")
+        const roundResult = document.createElement('div');
+
+        Rock.addEventListener("click", e => {
+            playRound("ROCK", getComputerChoice());
+        })
+        Paper.addEventListener("click", e => {
+            playRound("PAPER", getComputerChoice());
+        })
+        Scissors.addEventListener("click", e => {
+            playRound("SCISSORS", getComputerChoice());
+        })
+
         let playerScore = 0;
         let computerScore = 0;
         let roundsPlayed = 0;
@@ -77,6 +92,11 @@
             
 
             if (roundsPlayed == 5) {
+
+               document.querySelector('.Rock').disabled = true;
+               document.querySelector('.Paper').disabled = true;
+               document.querySelector('.Scissors').disabled = true;
+
                 if (playerScore > computerScore) {
                 console.log("You won!!!");
                 } else if (computerScore > playerScore) {
@@ -108,19 +128,7 @@
             // }
             
         // }
-        const Rock = document.querySelector(".Rock");
-        const Paper = document.querySelector(".Paper");
-        const Scissors = document.querySelector(".Scissors")
-        const roundResult = document.createElement('div');
-        Rock.addEventListener("click", e => {
-            playRound("ROCK", getComputerChoice());
-        })
-        Paper.addEventListener("click", e => {
-            playRound("PAPER", getComputerChoice());
-        })
-        Scissors.addEventListener("click", e => {
-            playRound("SCISSORS", getComputerChoice());
-        })
+        
 
     </script>
     <script src="script.js"></script>
