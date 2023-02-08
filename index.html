@@ -5,117 +5,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Rock Paper Scissors</title>
+    <title> Castle Defense</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <button class="Rock"> Rock </button>
-    <button class="Paper"> Paper </button>
-    <button class="Scissors"> Scissors </button>
-    <script>
-
-        const Rock = document.querySelector(".Rock");
-        const Paper = document.querySelector(".Paper");
-        const Scissors = document.querySelector(".Scissors")
-        const roundResult = document.createElement('div');
-        roundResult.setAttribute('style', 'white-space:pre;');
-
-        Rock.addEventListener("click", e => {
-            playRound("ROCK", getComputerChoice());
-        })
-        Paper.addEventListener("click", e => {
-            playRound("PAPER", getComputerChoice());
-        })
-        Scissors.addEventListener("click", e => {
-            playRound("SCISSORS", getComputerChoice());
-        })
-
-        let playerScore = 0;
-        let computerScore = 0;
-        let roundsPlayed = 0;
-
-        function getComputerChoice() {
-            let choices = ["ROCK", "PAPER", "SCISSORS"];
-            return choices[Math.floor(Math.random() * 3)];
-        }
-
-        function playRound(playerSelection, computerSelection) {
-
-            roundsPlayed = roundsPlayed + 1;
-            if (playerSelection == "ROCK") {
-
-                if (computerSelection == "ROCK") {
-                    roundResult.textContent = "Tie rock and rock!\r\n" + "Player Score: " + playerScore + "\r\nComputer Score:" + computerScore;
-                    document.body.appendChild(roundResult);
-                } else if (computerSelection == "SCISSORS") {
-                    playerScore += 1;
-                    roundResult.textContent = "You win! Rock beats Scissors!\r\n" + "Player Score: " + playerScore + "\r\nComputer Score:" + computerScore;
-                    document.body.appendChild(roundResult);
-
-                } else if (computerSelection == "PAPER") {
-                    computerScore += 1;
-                    roundResult.textContent = "you lose! Paper covers rock!\r\n" + "Player Score: " + playerScore + "\r\nComputer Score:" + computerScore;
-                    document.body.appendChild(roundResult);
-                } else {
-                    console.log("Something went wrong?")
-                }
-
-            } else if (playerSelection == "PAPER") {
-
-                if (computerSelection == "PAPER") {
-                    roundResult.textContent = "Tie paper and paper!\r\n" + "Player Score: " + playerScore + "\r\nComputer Score:" + computerScore;
-                    document.body.appendChild(roundResult);
-                } else if (computerSelection == "ROCK") {
-                    playerScore += 1;
-                    roundResult.textContent = "You win! Paper covers Rock!\r\n" + "Player Score: " + playerScore + "\r\nComputer Score:" + computerScore;
-                    document.body.appendChild(roundResult);
-
-                } else if (computerSelection == "SCISSORS") {
-                    computerScore += 1;
-                    roundResult.textContent = "You lose! Scissors cuts paper!\r\n" + "Player Score: " + playerScore + "\r\nComputer Score:" + computerScore;
-                    document.body.appendChild(roundResult);
-                } else {
-                    console.log("Something went wrong?")
-                }
-
-            } else if (playerSelection == "SCISSORS") {
-
-                if (computerSelection == "SCISSORS") {
-                    roundResult.textContent = "Its a tie! Scissors and Scissors\r\n" + "Player Score: " + playerScore + "\r\nComputer Score:" + computerScore;
-                    document.body.appendChild(roundResult);
-                } else if (computerSelection == "PAPER") {
-                    playerScore += 1;
-                    roundResult.textContent = "You win! Scissors cuts paper!\r\n" + "Player Score: " + playerScore + "\r\nComputer Score:" + computerScore;
-                    document.body.appendChild(roundResult);
-                } else if (computerSelection == "ROCK") {
-                    computerScore += 1;
-                    roundResult.textContent = "you lose! Rock smashes scissors!\r\n" + "Player Score: " + playerScore + "\r\nComputer Score:" + computerScore;
-                    document.body.appendChild(roundResult);
-
-                } else {
-                    console.log("Something went wrong?")
-                }
-            } else {
-                console.log("Something went wrong?")
-            }
-
-            if (roundsPlayed == 5) {
-                ;
-                document.querySelector('.Rock').disabled = true;
-                document.querySelector('.Paper').disabled = true;
-                document.querySelector('.Scissors').disabled = true;
-
-                if (playerScore > computerScore) {
-                    roundResult.textContent = "Player Score: " + playerScore + "\r\nComputer Score:" + computerScore + "\r\nYou won the game! \r\nRefresh to play again";
-                } else if (computerScore > playerScore) {
-                    roundResult.textContent = "Player Score: " + playerScore + "\r\nComputer Score:" + computerScore + "\r\nYou lost the game! \r\nRefresh to play again"
-                } else {
-                    roundResult.textContent = "Player Score: " + playerScore + "\r\nComputer Score:" + computerScore + "\r\nYou tied the game! \r\nRefresh to play again";
-                }
-            }
-        }
-    </script>
+    <div class = "button_container">
+        <button class="Fire"> <img src="Images/fire.png"> </button>
+        <button class="Water"> <img src="Images/water.png"> </button>
+        <button class="Flora"> <img src="Images/flora.png"> </button>
+    </div>
+    <canvas id="canvas" width="750" height="400"></canvas>
+    <div class = "score">
+        <p class ="playerHP">Player Health: 5</p>
+        <p class = "match_results"></p>
+        <p class ="monsterHP">Monster Health: 5</p>
+    </div>
     <script src="script.js"></script>
 </body>
 
