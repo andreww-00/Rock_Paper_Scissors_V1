@@ -31,7 +31,7 @@ if (wizSprite.complete) {
  context.drawImage(wizSprite, x_pos, 0, wizard_width, wizard_height, -100, -75, wizard_position, wizard_position);   
 } else {
     wizSprite.onload = function () {
-        setInterval(animate_wiz, 150); 
+        setInterval(animate_wiz, 50); 
         }
 }
 
@@ -43,7 +43,7 @@ if (skelSprite.complete) {
     context.drawImage(skelSprite, x,0,skelWidth,skelHeight, skelX, skelY, 300, 200);
 } else {
     skelSprite.onload = function () {
-    setInterval(animate_skel, 150)
+    setInterval(animate_skel,250)
     }
 }
 let x = 0;
