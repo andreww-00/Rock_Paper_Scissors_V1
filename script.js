@@ -8,7 +8,7 @@ let monsterStatus = document.querySelector(".monsterHP")
 roundResult.setAttribute("style", "white-space:pre;");
 let playerHP = 5;
 let monsterHP = 5;
-
+//global variables for animation
 const wizard_height = 190;
 const wizard_width = 231;
 const wizard_position = 600;
@@ -19,7 +19,12 @@ let skelSprite = new Image ();
 skelSprite.src = "/Images/undead_idle_sheet.png";
 let wizSprite = new Image();
 wizSprite.src = "/Images/Idle.png";   
+let skelHeight = 32;
+let skelWidth = 48;
+let skelX = 450
+let skelY = 175
 
+//animation functions
 function animate_wiz () {
     context.clearRect(-100,-75, wizard_position, wizard_position);
     context.drawImage(wizSprite, x_pos, 0, wizard_width, wizard_height, -100, -75, wizard_position, wizard_position);
@@ -35,10 +40,6 @@ if (wizSprite.complete) {
         }
 }
 
-let skelHeight = 32;
-let skelWidth = 48;
-let skelX = 450
-let skelY = 175
 if (skelSprite.complete) {
     context.drawImage(skelSprite, x,0,skelWidth,skelHeight, skelX, skelY, 300, 200);
 } else {
@@ -53,7 +54,6 @@ function animate_skel () {
     x+=skelWidth;
     if (x == 864 ) x = 0;
 }
-
 
 
 //listens for button inputs 
